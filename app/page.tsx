@@ -7,13 +7,16 @@ import Image from 'next/image';
 import deskTopImage from '@/public/hero-desktop.png';
 import MobileImage from '@/public/hero-mobile.png';
 import type { Metadata } from 'next';
+import { getUser } from './lib/actions';
 
 export const metadata: Metadata = {
   title: 'Homepage',
   description: '...',
 };
 
-export default function Page() {
+export default async function Page() {
+  const user = await getUser();
+  console.log('hahaha', user);
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
@@ -25,7 +28,7 @@ export default function Page() {
           <p
             className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
           >
-            <strong>Welcome to Acme.</strong> This is the example for the{' '}
+            <strong>Welcome {user.name}.</strong> This is the example for the{' '}
             <Link href="https://nextjs.org/learn/" className="text-blue-500">
               Next.js Learn Course
             </Link>
