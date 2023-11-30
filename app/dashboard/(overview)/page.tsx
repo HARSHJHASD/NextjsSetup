@@ -4,15 +4,30 @@ import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { lusitana } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data'; // Remove fetchLatestInvoices
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import {
   RevenueChartSkeleton,
   LatestInvoicesSkeleton,
   CardsSkeleton,
 } from '@/app/ui/skeletons';
+import Head from 'next/head';
 
-export default async function Page() {
+export const metadata: Metadata = {
+  title: 'Dashboard',
+  description: '...',
+};
+
+// Define the Page component
+function Page() {
+  // React.useEffect(() => {
+  //   // Fetch data or perform other side effects here
+  // }, []);
+
   return (
     <main>
+      {/* Set meta tags for the page */}
+
+      {/* Your existing content */}
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Dashboard
       </h1>
@@ -32,3 +47,6 @@ export default async function Page() {
     </main>
   );
 }
+
+// Export the Page component
+export default Page;
