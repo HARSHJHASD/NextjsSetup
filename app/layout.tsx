@@ -2,7 +2,7 @@ import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import type { Metadata } from 'next';
 import Head from 'next/head';
-import favicon from '../public/icon.png';
+// import favicon from '../public/icon.png';
 
 export const metadata: Metadata = {
   title: 'General Name',
@@ -16,9 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
+      {/* <Head>
         <link rel="shortcut icon" href={favicon} />
-      </Head>
+      </Head> */}
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
